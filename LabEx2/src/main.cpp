@@ -8,14 +8,13 @@ struct Point
   float X_coord;
   float Y_coord;
 };
-
 struct Point array_point[LEN];
-struct Point mean_point;
 
 void setup()
 {
   int i;
   Serial.begin(9600);
+  // put your setup code here, to run once:
   Serial.println("Pointers and structs\n");
   for (i = 0; i < 10; i++)
   {
@@ -26,7 +25,9 @@ void setup()
 
 void loop()
 {
+  // put your main code here, to run repeatedly:
   struct Point *p_struct;
+  struct Point mean_point;
 
   int i;
   mean_point.X_coord = 0;

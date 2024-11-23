@@ -17,7 +17,11 @@ int main(int argc, char const *argv[])
     char b = 97;
     char c = 'a';
     int i = a;
-    int j=97;
-    char d=j;
+    int j = 97;
+    char d = j;
+
+    float ff = 3.14;
+    printf("Media = %.2f\n", ff);
+
     return 0;
 }

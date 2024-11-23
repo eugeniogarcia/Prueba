@@ -1,42 +1,25 @@
 #include <Arduino.h>
 
-char texto[100];
+#define LEN 10
+int array_input[LEN] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+int array_output[LEN] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
 void setup()
 {
   Serial.begin(9600);
-  Serial.println("Introduction to pointers \n");
+  Serial.println("Pointers and Arrays\n");
 }
 
 void loop()
 {
-  int *pc, c;
-
-  c = 22;
-  sprintf(texto, "Address of c: %p\n", &c);
-  Serial.println(texto);
-
-  sprintf(texto, "Value of c: %d\n\n", c); // 22
-  Serial.println(texto);
-
-  pc = &c;
-  sprintf(texto, "Address of pointer pc: %p\n", pc);
-  Serial.println(texto);
-
-  sprintf(texto, "Content of pointer pc: %d\n\n", *pc); // 22
-  Serial.println(texto);
-
-  c = 11;
-  sprintf(texto, "Address of pointer pc: %p\n", pc);
-  Serial.println(texto);
-
-  sprintf(texto, "Content of pointer pc: %d\n\n", *pc); // 11
-  Serial.println(texto);
-
-  *pc = 2;
-  sprintf(texto, "Address of c: %p\n", &c);
-  Serial.println(texto);
-
-  sprintf(texto, "Value of c: %d\n\n", c); // 2
-  Serial.println(texto);
+  int *p_ini, *p_end;
+  int i;
+  p_ini = array_input;
+  p_end = array_output + 9;
+  for (i = 0; i < 10; i++)
+  {
+    *p_end = *p_ini;
+    p_ini++;
+    p_end--;
+  }
 }
